@@ -1,9 +1,5 @@
 name: Node.js CI
 
-env:
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ secrets.DOCKER_USER }}
-
 on:
   push:
     branches: [ "main" ]
@@ -58,7 +54,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKER_USER }}/${{ github.repository }}:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             DB_HOST=${{ secrets.DB_HOST }}
