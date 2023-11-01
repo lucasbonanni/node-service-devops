@@ -2,8 +2,6 @@ name: Node.js CI and Docker Deployment
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   build_and_test:
