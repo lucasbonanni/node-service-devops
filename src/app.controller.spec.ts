@@ -16,7 +16,7 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Successfully status"', () => {
-      expect(appController.getByCode("2")).toEqual({status: AppService.SUCCESSFULLY_MESSAGE});
+      expect(appController.getByCode("3")).toEqual({status: AppService.SUCCESSFULLY_MESSAGE});
     });
   });
 });
