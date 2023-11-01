@@ -7,7 +7,7 @@ RUN yarn install
 COPY --chown=node:node . .
 RUN yarn build
 
-# stage 2
+# stage 2 for prod
 FROM node:18-alpine
 USER node
 WORKDIR /home/node/app  
