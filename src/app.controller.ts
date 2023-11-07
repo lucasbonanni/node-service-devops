@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get("/:id")
+  @Get("/code/:id")
   getByCode(@Param('id') id: string): any {
     return this.appService.getByCode(+id);
   }
