@@ -13,3 +13,8 @@ In order to use jenkins uncoment the last lines that contains the jenkins servic
 
 The rest of the configuration on the [link](https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose)
 
+## Docker compose
+### new relic agent
+It needs a file in the root directory called newrelic-infra.yml
+with the content:
+license_key: key
