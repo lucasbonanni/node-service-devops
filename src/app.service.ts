@@ -16,4 +16,8 @@ export class AppService {
 
     return { status: AppService.SUCCESSFULLY_MESSAGE }
 }
+
+getHello(): any {
+ return "Hello"
+}
 }
