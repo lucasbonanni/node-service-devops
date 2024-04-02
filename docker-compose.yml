@@ -10,18 +10,12 @@ services:
       target: dev
     environment:
       - PORT=3000
-      # - DB_HOST=postgres
-      # - DB_PORT=5432
-      # - DB_USER=postgres
-      # - DB_PW=postgres
       - NEW_RELIC_NO_CONFIG_FILE=true
-      - NEW_RELIC_LICENSE_KEY=key
-      - NEW_RELIC_APP_NAME=node-api
+      - NEW_RELIC_LICENSE_KEY=9eb0c232ce37b3ac19c9f2898ffd91c9FFFFNRAL
+      - NEW_RELIC_APP_NAME=library-service
     network_mode: bridge
     ports:
       - 3000:3000
-    # links:
-    #   - postgres:postgres
     volumes:
       - .:/app
       - /app/node_modules
