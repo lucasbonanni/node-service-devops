@@ -29,6 +29,6 @@ export class AppService {
   }
 
   getHello(): any {
-   return "Hello"
+   return "Hello algo"
   }
 }
