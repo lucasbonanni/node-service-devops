@@ -67,7 +67,7 @@ jobs:
             DB_DATABASE=${{ secrets.DB_DATABASE }}
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
           tags: |
-            lucasbonanni/node-service-devops":latest
-            lucasbonanni/node-service-devops":1.0.0
-            ghcr.io/lucasbonanni/node-service-devops":latest
-            ghcr.io/lucasbonanni/node-service-devops":1.0.0
+            lucasbonanni/node-service-devops:latest
+            lucasbonanni/node-service-devops:1.0.0
+            ghcr.io/lucasbonanni/node-service-devops:latest
+            ghcr.io/lucasbonanni/node-service-devops:1.0.0
