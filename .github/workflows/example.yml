@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
-        
+
       - name: Prepare
         run: |
           platform=${{ matrix.platform }}
@@ -67,7 +67,7 @@ jobs:
             DB_DATABASE=${{ secrets.DB_DATABASE }}
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
           tags: |
-            user/app:latest
-            user/app:1.0.0
-            ghcr.io/user/app:latest
-            ghcr.io/user/app:1.0.0
+            lucasbonanni/node-service-devops":latest
+            lucasbonanni/node-service-devops":1.0.0
+            ghcr.io/lucasbonanni/node-service-devops":latest
+            ghcr.io/lucasbonanni/node-service-devops":1.0.0
