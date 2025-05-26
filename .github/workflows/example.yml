@@ -67,7 +67,7 @@ jobs:
             DB_DATABASE=${{ secrets.DB_DATABASE }}
           outputs: type=image,push=true
           tags: |
-            lucasbonanni/node-service-devops:latest
-            lucasbonanni/node-service-devops:1.0.0
+            developerdocker/user-service:latest
+            developerdocker/user-service:1.0.0
             ghcr.io/lucasbonanni/node-service-devops:latest
             ghcr.io/lucasbonanni/node-service-devops:1.0.0
