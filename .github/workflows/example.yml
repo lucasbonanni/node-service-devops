@@ -29,8 +29,9 @@ jobs:
           images: |
              ${{ github.repository }}
              ghcr.io/${{ github.repository }}
-
           tags: |
+            type=raw,value=latest
+            type=raw,value=1.0.0
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
@@ -69,8 +70,4 @@ jobs:
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             DB_DATABASE=${{ secrets.DB_DATABASE }}
           outputs: type=image,push=true
-          tags: |
-            developerdocker/user-service:latest
-            developerdocker/user-service:1.0.0
-            ghcr.io/lucasbonanni/node-service-devops:latest
-            ghcr.io/lucasbonanni/node-service-devops:1.0.0
+          tags: ${{ steps.meta.outputs.tags }}
