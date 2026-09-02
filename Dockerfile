@@ -1,11 +1,15 @@
+FROM node:24-alpine AS base
+
+# add the missing shared libraries from alpine base image
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+
+
 #
 # 🧑‍💻 Development
 #
-FROM node:18-alpine as dev
-# add the missing shared libraries from alpine base image
-RUN apk add --no-cache libc6-compat
-# Create app folder
-WORKDIR /app
+FROM base as dev
 
 # Set to dev environment
 ENV NODE_ENV dev
@@ -20,17 +24,10 @@ RUN yarn --frozen-lockfile
 USER node
 
 
-
-
-
-
 #
 # 🏡 Production Build
 # 
-FROM node:18-alpine as build
-
-WORKDIR /app
-RUN apk add --no-cache libc6-compat
+FROM base as build
 
 # Set to production environment
 ENV NODE_ENV production
@@ -50,21 +47,11 @@ RUN yarn --frozen-lockfile --production && yarn cache clean
 # Set Docker as a non-root user
 USER node
 
-
-
-
-
-
-
 #
 # 🚀 Production Server
 #
-FROM node:18-alpine as prod
+FROM base as prod
 
-WORKDIR /app
-RUN apk add --no-cache libc6-compat
-
-# Set to production environment
 ENV NODE_ENV production
 
 # Copy only the necessary files
