@@ -5,11 +5,15 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
+FROM base AS build-deps
+
+RUN apk add --no-cache python3 make g++
+
 
 #
 # 🧑‍💻 Development
 #
-FROM base as dev
+FROM build-deps AS dev
 
 # Set to dev environment
 ENV NODE_ENV dev
@@ -27,7 +31,7 @@ USER node
 #
 # 🏡 Production Build
 # 
-FROM base as build
+FROM build-deps AS build
 
 # Set to production environment
 ENV NODE_ENV production
